@@ -1,0 +1,97 @@
+# Knowledge base of interpretation rules across systems.
+#
+# Each rule is declarative and EXPLAINABLE: it carries the system it comes from,
+# the condition that fires it, the life-area it speaks to, a weight, and the
+# canonical source citation. The reasoner evaluates `when` against a flat fact
+# dictionary; the report layer groups fired rules by `area`.
+#
+# This is the "knowledge retrieval + rule-based reasoning" layer the client
+# asked for. Adding a new astrology system = adding rules here, no code change.
+
+- id: NUM-LP-1
+  system: Numerology
+  when: "life_path == 1"
+  area: personality
+  weight: 0.8
+  source: "Pythagorean numerology — Life Path 1"
+  text: "Independent, pioneering drive; leadership comes naturally but patience with others can be the lesson."
+
+- id: NUM-LP-7
+  system: Numerology
+  when: "life_path == 7"
+  area: personality
+  weight: 0.8
+  source: "Pythagorean numerology — Life Path 7"
+  text: "Analytical and introspective; thrives on depth, research, and solitude over surface social life."
+
+- id: NUM-LP-8
+  system: Numerology
+  when: "life_path == 8"
+  area: financial
+  weight: 0.9
+  source: "Pythagorean numerology — Life Path 8"
+  text: "Strong material and executive orientation; wealth-building and authority are recurring life themes."
+
+- id: NUM-SOUL-6
+  system: Numerology
+  when: "soul_urge == 6"
+  area: relationship
+  weight: 0.7
+  source: "Pythagorean numerology — Soul Urge 6"
+  text: "Inner drive toward nurturing, home, and responsibility for loved ones; partnership is central."
+
+- id: VED-SAT-10
+  system: Vedic
+  when: "Saturn_sign_index == 9 or Saturn_sign_index == 10"
+  area: career
+  weight: 0.85
+  source: "Saturn in Capricorn/Aquarius (own signs)"
+  text: "Saturn dignified — disciplined, durable career growth; rewards come late but are structurally solid."
+
+- id: VED-JUP-CAREER
+  system: Vedic
+  when: "Jupiter_sign in ['Sagittarius','Pisces','Cancer']"
+  area: career
+  weight: 0.75
+  source: "Jupiter in own/exaltation sign"
+  text: "Jupiter strong — favours teaching, advisory, finance, and law; expansion through knowledge."
+
+- id: VED-MARS-RISK
+  system: Vedic
+  when: "Mars_sign in ['Aries','Scorpio','Capricorn']"
+  area: risk
+  weight: 0.6
+  source: "Mars dignified"
+  text: "High initiative and courage; risk periods center on impulsive decisions and conflict — channel deliberately."
+
+- id: DASHA-JUP
+  system: Dasha
+  when: "mahadasha_lord == 'Jupiter'"
+  area: opportunity
+  weight: 0.9
+  source: "Vishottari Jupiter Mahadasha"
+  text: "Jupiter major-period: expansion, learning, mentorship, and financial/marital growth are favoured."
+
+- id: DASHA-SAT
+  system: Dasha
+  when: "mahadasha_lord == 'Saturn'"
+  area: challenge
+  weight: 0.85
+  source: "Vishottari Saturn Mahadasha"
+  text: "Saturn major-period: consolidation, hard work, and restructuring; delays now build lasting foundations."
+
+- id: DASHA-RAHU
+  system: Dasha
+  when: "mahadasha_lord == 'Rahu'"
+  area: opportunity
+  weight: 0.7
+  source: "Vishottari Rahu Mahadasha"
+  text: "Rahu major-period: unconventional gains, foreign/tech ventures, and rapid but volatile rise."
+
+- id: LK-SUN-1
+  system: LalKitab
+  when: "Sun_sign_index == 0"
+  area: personality
+  weight: 0.5
+  source: "Lal Kitab — Sun in first sign"
+  text: "Self-made authority; ego and father-karma themes — remedies emphasise humility and service."

@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+pyyaml>=6.0
+# Optional — engine runs in deterministic demo mode if these are absent:
+# pyswisseph>=2.10   (real planetary ephemeris)
+# anthropic>=0.25    (Claude narration layer)
+# chromadb>=0.4      (vector retrieval layer)
